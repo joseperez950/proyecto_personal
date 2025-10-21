@@ -1,0 +1,12 @@
+# Caddyfile
+proyecto-personal.duckdns.org {
+  reverse_proxy /minio* minio:9000
+  reverse_proxy / {
+    to minio:9000
+  }
+}
+
+# MinIO consola administrativa (opcional en otra ruta)
+proyecto-personal.duckdns.org/minio {
+  reverse_proxy minio:9001
+}
